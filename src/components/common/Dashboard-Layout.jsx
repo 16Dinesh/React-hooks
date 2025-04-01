@@ -5,61 +5,69 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const hooksData = [
-  { 
-    title: "useState", 
+  {
+    title: "useState",
     links: [
-      { name: "Boolean State", path: "/useState/Booleans" },
-      { name: "InputText", path: "/useState/InputText" }
-    ] 
+      { name: "Text Hide with Button", path: "/useState/Booleans" },
+      { name: "InputText Display", path: "/useState/InputText" },
+      { name: "Handling multiple input fields", path: "/useState/HandlingInputFields" },
+      { name: "Toggle Between Two Text Inputs", path: "/useState/Toggle-Between-2-txt-inputs" },
+      { name: "Real-time Character Counter", path: "/useState/Real-time-Character-Counter" },
+      {
+        name: "Search Filter for a List of Items",
+        path: "/useState/SearchList",
+      },
+      { name: "Dynamic Form Fields", path: "/useState/DynamicFields" },
+    ],
   },
-  { 
-    title: "useEffect", 
+  {
+    title: "useEffect",
     links: [
       { name: "Fetching Data", path: "/examples/useEffect-fetch" },
-      { name: "Cleanup in useEffect", path: "/examples/useEffect-cleanup" }
-    ] 
+      { name: "Cleanup in useEffect", path: "/examples/useEffect-cleanup" },
+    ],
   },
-  { 
-    title: "useContext", 
+  {
+    title: "useContext",
     links: [
       { name: "Theme Management", path: "/examples/useContext-theme" },
-      { name: "Authentication", path: "/examples/useContext-auth" }
-    ] 
+      { name: "Authentication", path: "/examples/useContext-auth" },
+    ],
   },
-  { 
-    title: "useReducer", 
+  {
+    title: "useReducer",
     links: [
       { name: "Counter Example", path: "/examples/useReducer-counter" },
-      { name: "Todo App", path: "/examples/useReducer-todos" }
-    ] 
+      { name: "Todo App", path: "/examples/useReducer-todos" },
+    ],
   },
-  { 
-    title: "useMemo", 
+  {
+    title: "useMemo",
     links: [
       { name: "Optimization", path: "/examples/useMemo-optimization" },
-      { name: "Filtering Example", path: "/examples/useMemo-filter" }
-    ] 
+      { name: "Filtering Example", path: "/examples/useMemo-filter" },
+    ],
   },
-  { 
-    title: "useCallback", 
+  {
+    title: "useCallback",
     links: [
       { name: "Event Handling", path: "/examples/useCallback-event" },
-      { name: "API Calls", path: "/examples/useCallback-fetch" }
-    ] 
+      { name: "API Calls", path: "/examples/useCallback-fetch" },
+    ],
   },
-  { 
-    title: "useRef", 
+  {
+    title: "useRef",
     links: [
       { name: "Accessing DOM", path: "/examples/useRef-dom" },
-      { name: "Timers & Intervals", path: "/examples/useRef-timer" }
-    ] 
+      { name: "Timers & Intervals", path: "/examples/useRef-timer" },
+    ],
   },
-  { 
-    title: "useLayoutEffect", 
+  {
+    title: "useLayoutEffect",
     links: [
       { name: "Measuring Elements", path: "/examples/useLayoutEffect-measure" },
-      { name: "Animations", path: "/examples/useLayoutEffect-animation" }
-    ] 
+      { name: "Animations", path: "/examples/useLayoutEffect-animation" },
+    ],
   },
 ];
 
@@ -71,13 +79,18 @@ const Dashboard = () => {
       {/* Page Heading */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold">All About React Hooks</h1>
-        <p className="text-gray-600 mt-2">Examples from Most Use Case Scenarios</p>
+        <p className="text-gray-600 mt-2">
+          Examples from Most Use Case Scenarios
+        </p>
       </div>
 
       {/* Hooks Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {hooksData.map((hook) => (
-          <Sheet key={hook.title} onOpenChange={(open) => !open && setSelectedHook(null)}>
+          <Sheet
+            key={hook.title}
+            onOpenChange={(open) => !open && setSelectedHook(null)}
+          >
             <SheetTrigger asChild>
               <Card
                 className="cursor-pointer p-10 flex items-center justify-center text-xl font-semibold"
@@ -90,7 +103,11 @@ const Dashboard = () => {
               <h2 className="text-2xl font-bold">{selectedHook?.title}</h2>
               <div className="mt-4 space-y-2">
                 {selectedHook?.links.map((link, index) => (
-                  <Button key={index} variant="outline" className="w-full flex flex-col items-start">
+                  <Button
+                    key={index}
+                    variant="outline"
+                    className="w-full flex flex-col items-start"
+                  >
                     <Link to={link.path} className="text-sm">
                       {link.name}
                     </Link>
